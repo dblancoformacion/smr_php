@@ -1,3 +1,9 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+?>
+
 <style>
 	b{
 		color:red;
@@ -10,7 +16,7 @@ Hola <b>Mundo</b>!!
 
 if(isset($_GET['passwd']) and $_GET['passwd']=='1234'){
 
-	echo 'Esto es secreto';
+	echo '<div><img src="https://images.pexels.com/photos/1320755/pexels-photo-1320755.jpeg" width="300"/><div>';
 
 }
 else{
