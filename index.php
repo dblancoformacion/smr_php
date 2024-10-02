@@ -8,14 +8,32 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 ?>
-
+<!doctype html>
+<head>
 <style>
 	b{
 		color:red;
 	}
+	body{
+		font-family: Verdana;
+		text-align: center;
+	}
+	.formulario input,button{
+		margin: 5px;
+		padding: 5px;
+		border-radius: 15px;
+		line-height: 2em;
+	}
+	#correo{
+		color:red;
+	}
 </style>
+<title>login</title>
+</head>
+<body>
 
-Hola <b>Mundo</b>!!
+<h1>Login</h1>
+
 
 <?php
 
@@ -24,10 +42,11 @@ if(!isset($_SESSION['id_user'])){
 		$_SESSION['id_user']=1;
 	}
 	else{
-		echo '<form method="post">'
-			.'<input name="passwd" type="password">'
-			.'<button>Envía contraseña</button>
-			.</form>';
+		echo '<form method="post" class="formulario">'
+			.'<input type="email" name="user" id="correo"/>'
+			.'<input name="passwd" type="password"/>'
+			.'<div><button>Envía contraseña</button></div>'
+			.'</form>';
 	}
 }
 if(isset($_SESSION['id_user'])){
@@ -36,3 +55,5 @@ if(isset($_SESSION['id_user'])){
 }
 
 ?>
+</body>
+</html>
