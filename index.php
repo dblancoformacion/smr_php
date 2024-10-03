@@ -27,6 +27,9 @@ error_reporting(E_ALL);
 	#correo{
 		color:red;
 	}
+	.error{
+		background-color: pink;
+	}
 </style>
 <title>login</title>
 </head>
@@ -38,16 +41,19 @@ error_reporting(E_ALL);
 <?php
 
 if(!isset($_SESSION['id_user'])){
-	if(isset($_POST['passwd']) and $_POST['passwd']=='1234'){
-		$_SESSION['id_user']=1;
+	if(isset($_POST['passwd'])){
+		if($_POST['passwd']=='1234'){
+			$_SESSION['id_user']=1;
+		}
+		else echo '<div class="error">Contraseña incorrecta</div>';
 	}
-	else{
+}
+if(!isset($_SESSION['id_user'])){
 		echo '<form method="post" class="formulario">'
 			.'<input type="email" name="user" id="correo"/>'
 			.'<input name="passwd" type="password"/>'
 			.'<div><button>Envía contraseña</button></div>'
 			.'</form>';
-	}
 }
 if(isset($_SESSION['id_user'])){
 	echo '<div><img src="https://images.pexels.com/photos/1320755/pexels-photo-1320755.jpeg" width="300"/><div>';
