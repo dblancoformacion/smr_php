@@ -42,10 +42,13 @@ error_reporting(E_ALL);
 
 if(!isset($_SESSION['id_user'])){
 	if(isset($_POST['passwd'])){
-		if($_POST['passwd']=='1234'){
-			$_SESSION['id_user']=1;
+		if($_POST['user']=='dblanc0@educantabria.es'){
+			if($_POST['passwd']=='1234'){
+				$_SESSION['id_user']=1;
+			}
+			else echo '<div class="error">Contraseña incorrecta</div>';
 		}
-		else echo '<div class="error">Contraseña incorrecta</div>';
+		else echo '<div class="error">Usuario incorrecto</div>';
 	}
 }
 if(!isset($_SESSION['id_user'])){
