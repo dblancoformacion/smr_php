@@ -44,28 +44,21 @@ if(!isset($_SESSION['id_user'])){
 	if(isset($_POST['passwd'])){
 		$conn = new mysqli('debiandavid','root','','smr');
 		$r=$conn->query("
-			SELECT * FROM usuarios
-			  WHERE usuario='".$_POST['user']."'
-			  AND passwd='".$_POST['passwd']."';
+			SELECT id_usuario,passwd FROM usuarios
+			  WHERE usuario='".$_POST['user']."';
 		")->fetch_assoc();
-		if(isset($r['id_usuario']))
-			$_SESSION['id_user']=$r['id_usuario'];
-		else echo '<div class="error">Usuario o contraseña incorrectos</div>';
-		/*
-		if($_POST['user']=='dblanc0@educantabria.es'){
-			
-			if($_POST['passwd']=='1234'){
-				$_SESSION['id_user']=1;
+		if(isset($r['id_usuario'])){
+			if($_POST['passwd']==$r['passwd']){
+				$_SESSION['id_user']=$r['id_usuario'];
 			}
 			else echo '<div class="error">Contraseña incorrecta</div>';
 		}
 		else echo '<div class="error">Usuario incorrecto</div>';
-		*/
 	}
 }
 if(!isset($_SESSION['id_user'])){
 		echo '<form method="post" class="formulario">'
-			.'<input type="email" name="user" id="correo"/>'
+			.'<input type="text" name="user" id="correo"/>'
 			.'<input name="passwd" type="password"/>'
 			.'<div><button>Envía contraseña</button></div>'
 			.'</form>';
