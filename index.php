@@ -42,7 +42,7 @@ error_reporting(E_ALL);
 
 if(!isset($_SESSION['id_user'])){
 	if(isset($_POST['passwd'])){
-		$conn = new mysqli('debiandavid','root','','smr');
+		$conn = new mysqli('localhost','root','','smr');
 		$r=$conn->query("
 			SELECT id_usuario,passwd FROM usuarios
 			  WHERE usuario='".$_POST['user']."';
