@@ -9,10 +9,11 @@ $ps = $conn->query("
 	SELECT * FROM provincias;
 ")->fetch_all(MYSQLI_ASSOC);
 
+$pob=0;
 foreach($ps as $p){
-	if($p['provincia']=='Asturias')
-		echo $p['superficie'].' km2';
+	if($p['autonomia']=='Galicia')
+		$pob+=$p['poblacion'];
 }
 
-
+echo $pob;
 //print_r($ps);
