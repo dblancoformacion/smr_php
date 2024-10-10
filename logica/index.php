@@ -11,8 +11,8 @@ $ps = $conn->query("
 
 $pob=0;
 foreach($ps as $p){
-	if(strstr($p['autonomia'],'Catalu'))
-		$pob+=$p['superficie'];
+	if($p['poblacion']>$pob)
+		$pob=$p['poblacion'];
 }
 
 echo $pob;
