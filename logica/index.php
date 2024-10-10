@@ -11,9 +11,14 @@ $ps = $conn->query("
 
 $pob=0;
 foreach($ps as $p){
-	if($p['autonomia']=='Galicia')
-		$pob+=$p['poblacion'];
+	if(strstr($p['autonomia'],'Catalu'))
+		$pob+=$p['superficie'];
 }
 
 echo $pob;
 //print_r($ps);
+
+//ONTANEDAHD
+//sobaosyquesadas22
+
+// habitantes de la provincia más poblada
